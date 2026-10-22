@@ -3,6 +3,7 @@ name: CI
 # Skill hub checks: card + security lints, plugin copies, marketplace manifest.
 # Python stdlib only; the Claude Code CLI validates the manifest when it installs cleanly.
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [main]
