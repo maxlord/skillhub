@@ -1,0 +1,29 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skillhub",
+  "description": "SkillHub: engineering practices as Agent Skills. Plugin copies in plugins/*/skills are generated from skills/ by tools/build-plugins.py.",
+  "owner": {
+    "name": "Maksim Kuleshov",
+    "url": "https://github.com/maxlord"
+  },
+  "plugins": [
+    {
+      "name": "process",
+      "source": "./plugins/process",
+      "description": "Process: cutting epics into one-PR stories, story specs, retrospectives.",
+      "category": "process"
+    },
+    {
+      "name": "dev",
+      "source": "./plugins/dev",
+      "description": "Development: branch → PR → merge flow, review by complexity, authoring new skills without duplicates.",
+      "category": "development"
+    },
+    {
+      "name": "release",
+      "source": "./plugins/release",
+      "description": "Release: who merges and how, release branches, workflow-made tags, main → dev sync, deploy on the owner's word.",
+      "category": "release"
+    }
+  ]
+}

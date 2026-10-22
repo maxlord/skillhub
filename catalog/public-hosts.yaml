@@ -1,0 +1,42 @@
+# Allowed hosts for security-lint. Anything else that looks like a hostname, IP or SSH target
+# blocks the skill: environment-specific values belong in an environment profile outside the hub.
+#
+# hosts   — exact public host names.
+# domains — public external domains: the domain and all its subdomains are allowed.
+# ips     — allowed IPs (loopback / "any address" only).
+hosts:
+  - skills.aura-aum.com    # the public catalog of this hub
+domains:
+  - agentskills.io
+  - anthropic.com
+  - claude.com
+  - claude.ai
+  - openai.com
+  - chatgpt.com
+  - github.com
+  - githubusercontent.com
+  - gitlab.com
+  - gitea.com
+  - habr.com
+  - cursor.com
+  - google.com
+  - apple.com
+  - figma.com
+  - telegram.org
+  - docker.com
+  - docker.io
+  - npmjs.com
+  - pypi.org
+  - python.org
+  - go.dev
+  - kotlinlang.org
+  - nestjs.com
+  - prisma.io
+  - traefik.io
+  - letsencrypt.org
+  - mermaid.js.org
+  - example.com
+  - example.org
+ips:
+  - 127.0.0.1
+  - 0.0.0.0

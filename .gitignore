@@ -1,0 +1,12 @@
+# Lint reports and catalog build
+dist/
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+# Local
+.env
+.secrets/
+.DS_Store
+# Codex copies (generated)
+.agents/

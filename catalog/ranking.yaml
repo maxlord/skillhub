@@ -1,0 +1,26 @@
+# Catalog ranking. The exact score is never shown on the site — only order and a quality band.
+# score = Σ weights · term, then multipliers.
+weights:
+  quality: 0.40        # lint + share of passing evals + skill-creator grade − penalty for open drift issues
+  calls30: 0.30        # invocations in the last 30 days (normalised)
+  installs: 0.20       # repos with the skill's plugin in enabledPlugins (normalised)
+  freshness: 0.10      # boost for a change within freshness_days; an overdue review-by gives 0
+freshness_days: 60
+multipliers:
+  cluster_leader: 1.2
+  cluster_member: 0.7
+  maturity:
+    draft: 0.5
+    trial: 1.0
+    stable: 1.0
+rules:
+  exact_name_first: true     # an exact name match is always the first row
+  deprecated_last: true
+  hide_blocked_from_install: true
+quality_bands:               # a band instead of a number
+  high: 0.75
+  medium: 0.5                # below — "needs work"
+search_weights:              # client-side full-text index (minisearch)
+  name: 3
+  description: 2
+  body: 1

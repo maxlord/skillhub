@@ -1,0 +1,6 @@
+categories:
+  - id: process
+    plugin: process
+  - id: development
+    plugin: dev
+  - id: infra

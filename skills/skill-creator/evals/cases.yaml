@@ -1,0 +1,16 @@
+# Prompt -> what the agent does with the skill. The detailed scenario of the first case: review-pr-scenario.md.
+cases:
+  - prompt: "Make a skill about PR review"
+    setup: "skills/ has review-by-complexity (cluster review, leader true)"
+    expect: >
+      Runs find-duplicates.py (exit 3), answers "similar: review-by-complexity (cluster leader of review)"
+      and proposes an edit to review-by-complexity; does not run tools/new-skill.sh, creates no files.
+  - prompt: "Make a skill about publishing to the App Store"
+    setup: "no similar skills"
+    expect: >
+      find-duplicates.py -> "no similar skills"; tools/new-skill.sh <name> --category release, card by
+      references/card.md, tools/validate.py green, build-plugins.py, a PR into the default branch.
+  - prompt: "Yes, I need a separate security-checklist skill for review, it is different"
+    setup: "after the agent proposed editing review-by-complexity"
+    expect: >
+      Creates a new skill in the review cluster with leader "false" and writes the reason into a rationale note in references/.

@@ -1,0 +1,7 @@
+# Skill owners (metadata.owner). spec-lint checks ids against this list.
+# The owner keeps the skill current and honours review-by; recorded decisions change only with the owner's word.
+owners:
+  - id: maintainer
+    title: Repository maintainer
+  - id: dispatcher
+    title: Dispatcher session (the agent that runs the queues)

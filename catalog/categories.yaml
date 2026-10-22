@@ -1,0 +1,31 @@
+# Skill categories (metadata.category). spec-lint checks ids against this list.
+# plugin — the marketplace plugin tools/build-plugins.py copies skills of this category into;
+# a skill in a category without a plugin fails the build.
+categories:
+  - id: process
+    title: Process
+    plugin: process
+    description: Epic planning, story specs, roundtables, retrospectives.
+  - id: development
+    title: Development
+    plugin: dev
+    description: Git flow, review, verification, authoring skills.
+  - id: release
+    title: Release
+    plugin: release
+    description: Merge styles, release branches, tags, sync, deploy.
+  - id: infra
+    title: Infrastructure
+    description: CI runners, servers, routing, observability.
+  - id: design
+    title: Design
+    description: Design-tool-first workflow, design system.
+  - id: ops
+    title: Operations
+    description: Queues, watchdogs, subscriptions, the dispatcher session.
+  - id: stack
+    title: Stack
+    description: Rules for a specific stack (NestJS, Kotlin Multiplatform, Go, web).
+  - id: bootstrap
+    title: Bootstrap
+    description: Standing up a new project from the hub.

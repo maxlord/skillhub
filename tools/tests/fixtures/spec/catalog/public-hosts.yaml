@@ -1,0 +1,13 @@
+# Public hosts for security-lint tests (fixture, not the live catalog).
+hosts:
+  - git.example.org
+domains:
+  - agentskills.io
+  - anthropic.com
+  - claude.com
+  - github.com
+  - example.com
+  - example.org
+ips:
+  - 127.0.0.1
+  - 0.0.0.0

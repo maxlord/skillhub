@@ -1,0 +1,56 @@
+name: CI
+
+# Skill hub checks: card + security lints, plugin copies, marketplace manifest.
+# Python stdlib only; the Claude Code CLI validates the manifest when it installs cleanly.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Checks run with `if: always()` so a red build shows every violation at once.
+    steps:
+      # Full history: spec-lint compares metadata.updated with `git log -1` of the skill directory.
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Tools tests (unittest)
+        run: python3 -m unittest discover -s tools/tests -v
+
+      - name: Spec-lint + security-lint
+        if: always()
+        run: python3 tools/validate.py --security-out dist/security.json skills
+
+      - name: Plugin copies match skills/ (build-plugins --check)
+        if: always()
+        run: python3 tools/build-plugins.py --check
+
+      - name: Marketplace manifest (structure)
+        if: always()
+        run: python3 tools/check_marketplace.py
+
+      - uses: actions/setup-node@v4
+        if: always()
+        with:
+          node-version: "22"
+
+      # Official validator. Warnings about missing `version` are expected: plugins follow main.
+      - name: Marketplace manifest (claude plugin validate)
+        if: always()
+        run: |
+          if npm install -g @anthropic-ai/claude-code >/dev/null 2>&1 && command -v claude >/dev/null; then
+            claude plugin validate .
+          else
+            echo "Claude Code CLI not installable here: structure checked by tools/check_marketplace.py only"
+          fi
