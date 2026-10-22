@@ -5,7 +5,7 @@
 # domains — public external domains: the domain and all its subdomains are allowed.
 # ips     — allowed IPs (loopback / "any address" only).
 hosts:
-  - skills.aura-aum.com    # the public catalog of this hub
+  - git.example.org    # example: a public forge host; add real public hosts here
 domains:
   - agentskills.io
   - anthropic.com

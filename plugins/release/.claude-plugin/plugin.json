@@ -2,10 +2,7 @@
   "name": "release",
   "description": "Release: who merges and how, release branches, workflow-made tags, main → dev sync, deploy on the owner's word. Skills are copies of the hub's skills/ (tools/build-plugins.py) — do not edit by hand.",
   "author": {
-    "name": "Maksim Kuleshov",
-    "url": "https://github.com/maxlord"
+    "name": "SkillHub maintainers"
   },
-  "license": "MIT",
-  "homepage": "https://skills.aura-aum.com",
-  "repository": "https://github.com/maxlord/skillhub"
+  "license": "MIT"
 }

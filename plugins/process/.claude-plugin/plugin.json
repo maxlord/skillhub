@@ -2,10 +2,7 @@
   "name": "process",
   "description": "Process: cutting epics into one-PR stories, story specs, retrospectives. Skills are copies of the hub's skills/ (tools/build-plugins.py) — do not edit by hand.",
   "author": {
-    "name": "Maksim Kuleshov",
-    "url": "https://github.com/maxlord"
+    "name": "SkillHub maintainers"
   },
-  "license": "MIT",
-  "homepage": "https://skills.aura-aum.com",
-  "repository": "https://github.com/maxlord/skillhub"
+  "license": "MIT"
 }

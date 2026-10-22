@@ -3,8 +3,6 @@
 **Engineering practices as [Agent Skills](https://agentskills.io/specification), shipped as a Claude Code plugin marketplace.**
 Built for a product with six repositories and an agent-driven delivery pipeline; published here in a generalized form.
 
-Catalog: **[skills.aura-aum.com](https://skills.aura-aum.com)** (coming soon).
-
 ## The case
 
 Six product repos (backend, a second backend for new APIs, mobile, web, admin, a messenger mini-app) are developed
@@ -29,7 +27,7 @@ flowchart LR
   S["skills/&lt;name&gt;/SKILL.md<br/>single source"] -->|tools/build-plugins.py| P["plugins/process · dev · release"]
   P --> M[".claude-plugin/marketplace.json<br/>marketplace: skillhub"]
   M -->|claude plugin install| R["product repos<br/>+ docs/ai/project-profile.yaml"]
-  S -->|frontmatter + catalog/*.yaml| C["static catalog<br/>skills.aura-aum.com"]
+  S -->|frontmatter + catalog/*.yaml| C["static catalog<br/>(planned)"]
   S -->|sync| X[".agents/skills for Codex"]
 ```
 
@@ -134,8 +132,8 @@ contributing to an existing skill; per-project settings file; skill sets (here: 
 ## Install
 
 ```sh
-# Add the marketplace (GitHub shorthand owner/repo)
-claude plugin marketplace add maxlord/skillhub
+# Add the marketplace (GitHub shorthand OWNER/repo; OWNER is the account hosting this repository)
+claude plugin marketplace add OWNER/skillhub
 # Install the plugins you need: <plugin>@<marketplace>
 claude plugin install process@skillhub
 claude plugin install dev@skillhub
@@ -147,7 +145,7 @@ For a whole team, declare it in the repo's `.claude/settings.json`:
 ```json
 {
   "extraKnownMarketplaces": {
-    "skillhub": { "source": { "source": "github", "repo": "maxlord/skillhub" } }
+    "skillhub": { "source": { "source": "github", "repo": "OWNER/skillhub" } }
   },
   "enabledPlugins": { "process@skillhub": true, "dev@skillhub": true, "release@skillhub": true }
 }
@@ -164,8 +162,8 @@ SkillHub — практики разработки как Agent Skills и market
 свои значения держат в `docs/ai/project-profile.yaml`. В CI — линт карточки по спецификации, security-lint
 (секреты, внутренние адреса, опасные операции без стоп-точки), сборка плагинов и проверка манифеста. Идеи
 ранжирования, кластеров с лидером и самодостаточности взяты из доклада Авито о Skills Hub, тяжёлую инфраструктуру
-(RAG, ACL, LLM-категоризация) на масштабе ~30 скиллов сознательно не строили. Каталог — skills.aura-aum.com (скоро).
+(RAG, ACL, LLM-категоризация) на масштабе ~30 скиллов сознательно не строили.
 
 ## License
 
-[MIT](LICENSE) © 2026 Maksim Kuleshov
+[MIT](LICENSE)

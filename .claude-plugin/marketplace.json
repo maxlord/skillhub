@@ -3,8 +3,7 @@
   "name": "skillhub",
   "description": "SkillHub: engineering practices as Agent Skills. Plugin copies in plugins/*/skills are generated from skills/ by tools/build-plugins.py.",
   "owner": {
-    "name": "Maksim Kuleshov",
-    "url": "https://github.com/maxlord"
+    "name": "SkillHub maintainers"
   },
   "plugins": [
     {
